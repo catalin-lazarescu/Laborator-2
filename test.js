@@ -4,13 +4,13 @@
     location.href = "https:" + window.location.href.substring( window.location.protocol.length );
     }
     function permission () {
-        if ( typeof( DeviceMotionEvent ) !== "undefined" && typeof( DeviceMotionEvent.requestPermission ) === "function" ) {
+        if ( typeof( DeviceOrientationEvent ) !== "undefined" && typeof( DeviceOrientationEvent.requestPermission ) === "function" ) {
             // (optional) Do something before API request prompt.
-            DeviceMotionEvent.requestPermission()
+            DeviceOrientationEvent.requestPermission()
                 .then( response => {
                 // (optional) Do something after API prompt dismissed.
                 if ( response == "granted" ) {
-                    window.addEventListener( "devicemotion", (e) => {
+                    window.addEventListener( "deviceorientation", (e) => {
                         var alpha = evt.alpha; 
                         var beta = evt.beta; 
                         var gamma = evt.gamma; 
@@ -28,7 +28,7 @@
             })
                 .catch( console.error )
         } else {
-            alert( "DeviceMotionEvent is not defined" );
+            alert( "DeviceOrientationEvent is not defined" );
         }
     }
     const btn = document.getElementById( "request" );
