@@ -5,10 +5,8 @@
     }
     function permission () {
         if ( typeof( DeviceOrientationEvent ) !== "undefined" && typeof( DeviceOrientationEvent.requestPermission ) === "function" ) {
-            // (optional) Do something before API request prompt.
             DeviceOrientationEvent.requestPermission()
                 .then( response => {
-                // (optional) Do something after API prompt dismissed.
                 if ( response == "granted" ) {
                     window.addEventListener( "deviceorientation", on_device_orientation)
                 }
